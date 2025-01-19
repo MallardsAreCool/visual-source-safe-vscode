@@ -1,0 +1,141 @@
+{
+  "publisher": "mallardsarecool",
+  "name": "visual-source-safe",
+  "displayName": "Visual Source Safe",
+  "description": "A Simple Visual Source Safe Manager for VSCode",
+  "version": "0.0.1",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./visual_source_safe/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Visual Source Safe Settings",
+      "properties": {
+        "visualSourceSafe.databaseDirectory": {
+          "type": "string",
+          "default": "",
+          "description": "Visual Source Safe Database Directory.",
+          "order": 8
+        },
+        "visualSourceSafe.workingDirectory": {
+          "type": "string",
+          "default": "",
+          "description": "Visual Source Safe Working Directory.",
+          "order": 9
+        },
+        "visualSourceSafe.username": {
+          "type": "string",
+          "default": "",
+          "description": "Visual Source Safe Username.",
+          "order": 6
+        },
+        "visualSourceSafe.password": {
+          "type": "string",
+          "default": "",
+          "description": "Visual Source Safe Password.",
+          "order": 7
+        },
+        "visualSourceSafe.executable": {
+          "type": "string",
+          "default": "",
+          "description": "Visual Source Safe ss.exe path.",
+          "order": 10
+        },
+        "visualSourceSafe.refreshRate": {
+          "type": "integer",
+          "default": 1,
+          "description": "Visual Source Safe Refresh Rate (Seconds).",
+          "order": 0
+        },
+        "visualSourceSafe.toggleComment": {
+          "type": "boolean",
+          "default": false,
+          "description": "Visual Source Safe Show Comment Input (CheckIn)",
+          "order": 1
+        }
+      }
+    },
+    "commands": [
+			{
+				"command": "visualSourceSafe.checkOutCurrent",
+				"category": "Visual Source Safe",
+				"title": "Check Out for Edits..."
+			},
+      {
+        "command": "visualSourceSafe.checkInCurrent",
+        "category": "Visual Source Safe",
+        "title": "Check In File..."
+      },
+      {
+        "command": "visualSourceSafe.refreshCurrentlyCheckedout",
+        "category": "Visual Source Safe",
+        "title": "Refresh currently checkedout"
+      },
+      {
+        "command": "visualSourceSafe.getLatestFile",
+        "category": "Visual Source Safe",
+        "title": "Get Latest Version..."
+      },
+      {
+        "command": "visualSourceSafe.undoCheckout",
+        "category": "Visual Source Safe",
+        "title": "Undo Checkout..."
+      }
+		],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "visualSourceSafe.checkOutCurrent",
+          "group": "2_visualSourceSafe",
+          "when": "isCheckedOutUser == false && isCheckedOutOther == false"
+        },
+        {
+          "command": "visualSourceSafe.checkInCurrent",
+          "group": "2_visualSourceSafe",
+          "when": "isCheckedOutUser == true"
+        },
+        {
+          "command": "visualSourceSafe.getLatestFile",
+          "group": "2_visualSourceSafe"
+        },
+        {
+          "command": "visualSourceSafe.undoCheckout",
+          "group": "2_visualSourceSafe",
+          "when": "isCheckedOutUser == true"
+        }
+      ]
+    },
+    "sourceControl": [
+      {
+        "id": "vss",
+        "label": "VSS",
+        "scmProviders": [
+          {
+            "id": "vss",
+            "label": "VSS",
+            "type": "vss"
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.92.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0"
+  }
+}
