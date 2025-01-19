@@ -5,6 +5,13 @@
   "description": "A Simple Visual Source Safe Manager for VSCode",
   "version": "0.0.1",
   "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MallardsAreCool/visual-source-safe-vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/MallardsAreCool/visual-source-safe-vscode/issues"
+  },
   "engines": {
     "vscode": "^1.92.0"
   },
