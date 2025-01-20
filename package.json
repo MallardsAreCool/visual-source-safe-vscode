@@ -3,7 +3,7 @@
   "name": "visual-source-safe",
   "displayName": "Visual Source Safe",
   "description": "A Simple Visual Source Safe Manager for VSCode",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "icon": "icon.png",
   "repository": {
     "type": "git",

@@ -88,6 +88,16 @@ function isDirectory(physicalFile) {
     return false;
 }
 
+function isFileInWorkingDirectory(physicalFile) {
+    var workingDirectory = config.getCurrentWorkingDir();
+
+    if (!workingDirectory) {
+        return false;
+    }
+
+    return physicalFile.includes(workingDirectory);
+}
+
 module.exports = {
     getCurrentFile
     , getVirtualFile
@@ -98,4 +108,5 @@ module.exports = {
     , getFullFilePath
     , removeReadOnlyFlag
     , isDirectory
+    , isFileInWorkingDirectory
 };
