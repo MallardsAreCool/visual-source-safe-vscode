@@ -1,4 +1,4 @@
-![Build Status](https://img.shields.io/badge/version-0.0.1-brightgreen)
+![Build Status](https://img.shields.io/badge/version-0.0.2-brightgreen)
 ![WIP](https://img.shields.io/badge/status-WIP-yellow)
 
 ## Status: 🚧 Work in Progress
