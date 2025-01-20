@@ -89,7 +89,7 @@ function isDirectory(physicalFile) {
 }
 
 function isFileInWorkingDirectory(physicalFile) {
-    var workingDirectory = config.getCurrentWorkingDir();
+    var workingDirectory = config.getPhysicalDirectory();
 
     if (!workingDirectory) {
         return false;
