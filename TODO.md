@@ -14,7 +14,7 @@
 - [X] Task 12: Undo checkout function
 - [ ] Task 13: Hide context functions if action not valid (check in/ undo checkout)
 - [ ] Task 14: Create list of current checked out
-- [ ] Task 15: Ignore files that aren't in users working dir
+- [X] Task 15: Ignore files that aren't in users working dir
 
 
 cmd (replace):
