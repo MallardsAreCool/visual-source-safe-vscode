@@ -27,6 +27,10 @@ async function checkInFile(filePath) {
         physicalFile = file.getFullFilePath(physicalFile);
     }
 
+    if (!file.isFileInWorkingDirectory(physicalFile)) {
+        return;
+    }
+
     if (!isCheckedOut(physicalFile)) {
         vscode.window.showErrorMessage(`Visual Source Safe: You don't have this file checked out for edits.`);
     }
@@ -66,6 +70,10 @@ async function undoCheckout(filePath) {
         physicalFile = file.getFullFilePath(physicalFile);
     }
 
+    if (!file.isFileInWorkingDirectory(physicalFile)) {
+        return;
+    }
+
     output = await exec.runCommand(exec.Commands.UNDO, physicalFile);
 }
 
@@ -83,6 +91,10 @@ async function getLatestFile(filePath) {
 
     if (!file.isValidFile(physicalFile)) {
         physicalFile = file.getFullFilePath(physicalFile);
+    }
+
+    if (!file.isFileInWorkingDirectory(physicalFile)) {
+        return;
     }
 
     if (isCheckedOut(physicalFile, false, true)) {
@@ -134,6 +146,10 @@ async function checkOutFile(filePath) {
 
     if (!file.isValidFile(physicalFile)) {
         physicalFile = file.getFullFilePath(physicalFile);
+    }
+
+    if (!file.isFileInWorkingDirectory(physicalFile)) {
+        return;
     }
 
     if (isCheckedOut(physicalFile, true)) {
